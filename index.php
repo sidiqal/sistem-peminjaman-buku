@@ -39,8 +39,18 @@
                 <td><?php echo $data["nama_pinjam"]; ?></td>
                 <td><?php echo $data["judul_buku"]; ?></td>
                 <td><img src="assets/img/<?php echo $data["foto_buku"]; ?>" width="100px"></td>
-                <td><?php echo $data["tanggal_pinjam"]; ?></td>
-                <td><?php echo $data["tanggal_kembali"]; ?></td>
+                <td>
+                    <?php
+                    $tanggal_pinjam = date_create($data["tanggal_pinjam"]);
+                    echo date_format($tanggal_pinjam, "d-m-Y");
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    $tanggal_pinjam = date_create($data["tanggal_pinjam"]);
+                    echo date_format($tanggal_pinjam, "d-m-Y");
+                    ?>
+                </td>
             </tr>
         <?php
             // Tambah angka

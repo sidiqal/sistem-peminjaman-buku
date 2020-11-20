@@ -51,8 +51,18 @@ if ($_SESSION["level"] !== "admin" and $_SESSION["level"] !== "pegawai") {
                 <td><?php echo $data["nama_pinjam"]; ?></td>
                 <td><?php echo $data["judul_buku"]; ?></td>
                 <td><img src="../assets/img/<?php echo $data["foto_buku"]; ?>" width="100px"></td>
-                <td><?php echo $data["tanggal_pinjam"]; ?></td>
-                <td><?php echo $data["tanggal_kembali"]; ?></td>
+                <td>
+                    <?php
+                    $tanggal_pinjam = date_create($data["tanggal_pinjam"]);
+                    echo date_format($tanggal_pinjam, "d-m-Y");
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    $tanggal_kembali = date_create($data["tanggal_kembali"]);
+                    echo date_format($tanggal_kembali, "d-m-Y");
+                    ?>
+                </td>
                 <td>
                     <a href="../action/edit.php?id=<?php echo $data["id"]; ?>">Edit</a> |
                     <?php
